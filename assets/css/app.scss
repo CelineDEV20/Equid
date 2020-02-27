@@ -1,0 +1,52 @@
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+$primary: #5651ff;
+@import "~bulma";
+@import "~bulma-slider";
+
+
+main{
+    padding: 1%;
+}
+
+body {
+    background-color: #E5E5E5;
+}
+
+// --- Navigateur --- //
+
+.navbar{
+    height:120px;
+}
+
+.barre_nav{
+    background-color: #999999;
+    border : 3px solid #4D4D4D;
+}
+
+.script_nav{
+    color: #4D4D4D;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.hover_nav>a:hover{
+    background-color: #4D4D4D;
+    color: #CB5730;
+}
+
+.button_org{
+    background-color: #CB5730;
+    color: white;
+    border-color: #4D4D4D;
+}
+
+.button_deconnexion{
+    background-color: white ;
+    color: #CB5730;
+    border-color: #4D4D4D;
+}
+
+.navbar-link:not(.is-arrowless)::after{
+    border-color: #CB5730;
+
+}

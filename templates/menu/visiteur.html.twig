@@ -1,0 +1,80 @@
+
+{% extends "base.html.twig" %}
+    {% block nav %}
+        <nav class="navbar  barre_nav" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                    <img src="/public/assets/img/logo.jpg" alt="logo" width="" height="" >
+                </a>
+
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start hover_nav">
+                    <a class="navbar-item script_nav"><i class="far fa-eye"></i>
+                        &nbsp&nbsp Nos Equid'Annonces
+                    </a>
+                    {#                        <a class="navbar-item">#}
+                    {#                            Publier un annonce [avec un redirection choix 1 :  inscription / choix 2 : connexion]#}
+                    {#                        </a>#}
+
+                    {#                        <div class="navbar-item has-dropdown is-hoverable">#}
+                    {#                            <a class="navbar-link">#}
+                    {#                                More#}
+                    {#                            </a>#}
+
+                    {#                            <div class="navbar-dropdown">#}
+                    {#                                <a class="navbar-item">#}
+                    {#                                    About#}
+                    {#                                </a>#}
+                    {#                                <a class="navbar-item">#}
+                    {#                                    Jobs#}
+                    {#                                </a>#}
+                    {#                                <a class="navbar-item">#}
+                    {#                                    Contact#}
+                    {#                                </a>#}
+                    {#                                <hr class="navbar-divider">#}
+                    {#                                <a class="navbar-item">#}
+                    {#                                    Report an issue#}
+                    {#                                </a>#}
+                    {#                            </div>#}
+                    {#                        </div>#}
+                    <a class="navbar-item script_nav" href="{{ path('nouvelle_annonce') }}">
+                        <i class="fas fa-plus-circle"></i>
+                        &nbsp&nbsp Déposez votre Equid'Annonces
+                    </a>
+                </div>
+
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+                                <p> Bienvenue {{ app.user.pseudo }}</p>
+                                <p>&nbsp&nbsp&nbsp</p>
+                                <a class="button button_deconnexion" href="{{ path("app_logout") }}">
+                                    <i class="fas fa-user-alt"></i>
+                                    <p>&nbsp</p>
+
+                                    <strong>Déconnexion</strong>
+                                </a>
+                            {% else %}
+                                <a class="button button_org" href="{{ path("app_login") }}" >
+                                    <strong>Connexion</strong>
+                                </a>
+                                <a class="button is-light" href="">
+                                    {#                                        {{ path("app_register") }}#}
+                                    S'inscrire
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    {% endblock %}
+

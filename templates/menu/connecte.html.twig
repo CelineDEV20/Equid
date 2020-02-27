@@ -1,0 +1,41 @@
+{% extends "membre/index.html.twig" %}
+
+{% block nav %}
+    <nav class="navbar  barre_nav" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="">
+                <img src="/public/assets/img/logo.jpg" alt="logo">
+            </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-item has-dropdown is-hoverable hover_nav">
+                <a class="navbar-item script_nav" href="{{path("home") }}">
+                    Nos Equid'Annonces
+                </a>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable hover_nav">
+                <a class="navbar-item script_nav" href="{{ path("profil") }}">
+                    Vos Equid'Annonces
+                </a>
+
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-light" href="{{ path("app_logout") }}">
+                            Déconnexion
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "menu/admin.html.twig" %}
+
+
+{% block stylesheets %}{% endblock %}
+
+
+{% block body %}
+
+    <h1> Liste de toutes les annonces :</h1>
+    <button type="button">
+        <a href="{{ "annonce/add" }}">Ajouter une Annonce</a>
+    </button>
+    <br>
+    <table>
+        <thead>
+        <tr>
+            <th> ID </th>
+            <th> Titre </th>
+            <th> Description_courte de l'annonce </th>
+            <th> Prix </th>
+            <th> Adresse </th>
+            <th> Ville </th>
+            <th> Code Postal </th>
+            <th> Pays </th>
+            <th> Id du Membre </th>
+            <th> Pseudo du Membre </th>
+            <th> Catégorie </th>
+            <th> Date_enregistrement</th>
+            <th colspan="2"> Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for annonce in liste %}
+            <tr>
+                <td>{{ annonce.id }}</td>
+                <td>{{ annonce.titre }}</td>
+                <td>{{ annonce.descriptioncourte }}</td>
+                <td>{{ annonce.prix }}</td>
+                <td>{{ annonce.adresse }}</td>
+                <td>{{ annonce.ville }}</td>
+                <td>{{ annonce.cp }}</td>
+                <td>{{ annonce.pays }}</td>
+                <td>{{ annonce.membre.id }}</td>
+                <td>{{ annonce.membre.pseudo }}</td>
+                <td>{{ annonce.categorie.titre }}</td>
+                <td>{{ annonce.dateenregistrement|date("d-m-Y") }}</td>
+                <td></td>
+{#                <td><a href="{{ path("artist_update", { id: artiste.id}) }}"><i class="fas fa-pencil-alt"></i></a> </td>#}
+{#                <td><a href="{{ path("artist_delete", { id: artiste.id}) }}"><i class="fas fa-trash-alt"></i></a> </td>#}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+{% endblock %}
