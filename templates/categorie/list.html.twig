@@ -1,8 +1,25 @@
 {% extends "menu/admin.html.twig" %}
 
+
+{% block stylesheets %}{% endblock %}
+
+
 {% block body %}
 
-    <table class="table">
+    <h1> Liste de toutes les catégories :</h1>
+    <button type="button">
+        <a href="{{ path('categorie_add') }}">Ajouter une Catégorie</a>
+    </button>
+    <br>
+
+    <table>
+        <thead>
+        <tr>
+            <th> Titre de la Catégorie</th>
+            <th> Mots Cles </th>
+        </tr>
+        </thead>
+        <tbody>
         {% for categorie in categories %}
             <tr>
                 <td>{{ categorie.titre }}</td>

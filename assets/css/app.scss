@@ -14,6 +14,10 @@ body {
 
 // --- Navigateur --- //
 
+.logo{
+    max-height: 100px !important;
+}
+
 .navbar{
     height:120px;
 }
@@ -49,4 +53,18 @@ body {
 .navbar-link:not(.is-arrowless)::after{
     border-color: #CB5730;
 
+}
+
+// --- Listes --- //
+
+table{
+    border: 3px solid #4D4D4D ;
+}
+
+th{
+    border: 3px solid #4D4D4D;
+}
+
+td{
+    border: 1px solid #4D4D4D;
 }

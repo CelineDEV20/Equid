@@ -88,4 +88,47 @@ class MembreController extends AbstractController
         $form = $form->createView();
         return $this->render("membre/annonce.html.twig", compact("form"));
     }
+
+    /**
+     * @Route("/profil/annonces/modifier/{id}", name="modifier_annonce")
+     *
+     */
+    public function modifier_annonce(Request $rq, AR $ar, EMI $em, int $id)
+    {
+        $annonceAmodifier = $ar->find($id);
+        if($annonceAmodifier && $annonceAmodifier->getMembre()->getId() == $this->getUser()->getId()){
+            $form = $this->createForm(AjouterAnnoncesType::class, $annonceAmodifier);
+            $form->handleRequest($rq);
+            if($form->isSubmitted()){
+                if($form->isValid()){
+                    $destination = $this->getParameter("dossier_images_annonces");
+                    for($i=1; $i<=5; $i++){
+                        $champ = "photo" . $i;
+                        if($photoUploadee = $form[$champ]->getData()){
+                            $nomPhoto = pathinfo($photoUploadee->getClientOriginalName(), PATHINFO_FILENAME);
+                            $nouveauNom = trim($nomPhoto);
+                            $nouveauNom = str_replace(" ", "_", $nouveauNom);
+                            $nouveauNom .= "-" . uniqid() . "." . $photoUploadee->guessExtension();
+                            $photoUploadee->move($destination, $nouveauNom);
+                            $setter = "setPhoto$i";
+                            $annonceAmodifier->getPhoto()->$setter($nouveauNom);
+                        }
+                    }
+                    $em->persist($annonceAmodifier);
+                    $em->flush();
+                    $this->addFlash("success", "Votre annonce a bien été modifiée");
+                    return $this->redirectToRoute("profil");
+                }
+                else{
+                    $this->addFlash("error", "Il manque des informations pour enregistrer vos modifications");
+                }
+            }
+            $form = $form->createView();
+            return $this->render("membre/annonce.html.twig", compact("form"));
+        }
+        else {
+            $this->addFlash("error", "Vous ne pouvez pas accéder à cet URL");
+            return $this->redirectToRoute("profil");
+        }
+    }
 }

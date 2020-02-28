@@ -69,9 +69,13 @@
                 </aside>
 
                 <section class="column">
-                        {% for ann in annonces %}
-                                <p>{{ ann.titre }}</p>
-                        {% endfor %}
+                        {% if annonces|length %}
+                                {% for ann in annonces %}
+                                        {% include "annonce/vignette.html.twig" with { "annonce": ann } %}
+                                {% endfor %}
+                        {% else %}
+                                <p>Aucune annonce ne correspond aux critères demandés</p>
+                        {% endif %}
                 </section>
         </main>
 {% endblock %}

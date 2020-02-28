@@ -4,7 +4,7 @@
     <nav class="navbar  barre_nav" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="">
-                <img src="/public/assets/img/logo.jpg" alt="logo">
+                <img class="logo" src="{{ url_images }}logo.jpg" alt="logo">
             </a>
 
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -15,48 +15,53 @@
         </div>
 
         <div id="navbarBasicExample" class="navbar-menu">
-                <div class="navbar-item has-dropdown is-hoverable hover_nav">
-                    <a class="navbar-link script_nav">
-                        Annonces
-                    </a>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-item script_nav">
+                    Accueil
+                </a>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable hover_nav">
+                <a class="navbar-link script_nav">
+                    Annonces
+                </a>
 
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" href="{{ path('annonce_add') }}">
-                            Ajouter
-                        </a>
-                        <a class="navbar-item" href="{{ path('annonce_list') }}">
-                            Liste
-                        </a>
-                    </div>
-                </div>
-
-                <div class="navbar-item has-dropdown is-hoverable hover_nav">
-                    <a class="navbar-link script_nav">
-                        Catégorie
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="{{ path('annonce_add') }}">
+                        Ajouter
                     </a>
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" href="{{ path('categorie_add') }}">
-                            Ajouter
-                        </a>
-                        <a class="navbar-item">
-                            Liste
-                        </a>
-                    </div>
-                </div>
-
-                <div class="navbar-item has-dropdown is-hoverable hover_nav">
-                    <a class="navbar-link script_nav">
-                        Membre
+                    <a class="navbar-item" href="{{ path('annonce_list') }}">
+                        Liste
                     </a>
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" href="{{ path('membre_add') }}">
-                            Ajouter
-                        </a>
-                        <a class="navbar-item">
-                            Liste
-                        </a>
-                    </div>
                 </div>
+            </div>
+
+            <div class="navbar-item has-dropdown is-hoverable hover_nav">
+                <a class="navbar-link script_nav">
+                    Catégorie
+                </a>
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="{{ path('categorie_add') }}">
+                        Ajouter
+                    </a>
+                    <a class="navbar-item" href="{{ path('categorie_list') }}">
+                        Liste
+                    </a>
+                </div>
+            </div>
+
+            <div class="navbar-item has-dropdown is-hoverable hover_nav">
+                <a class="navbar-link script_nav">
+                    Membre
+                </a>
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="{{ path('membre_add') }}">
+                        Ajouter un Admin
+                    </a>
+                    <a class="navbar-item">
+                        Liste
+                    </a>
+                </div>
+            </div>
 
 
             </div>

@@ -36,6 +36,7 @@ class MembreRepository extends ServiceEntityRepository implements PasswordUpgrad
         $this->_em->flush();
     }
 
+
     // /**
     //  * @return Membre[] Returns an array of Membre objects
     //  */

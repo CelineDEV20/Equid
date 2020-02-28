@@ -79,11 +79,12 @@ class Annonce
     private $photo;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Categorie")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="annonces")
      * @ORM\JoinColumn(nullable=false)
      */
     private $categorie;
 
+   
     public function getId(): ?int
     {
         return $this->id;
@@ -249,4 +250,6 @@ class Annonce
 
         return $this;
     }
+
+
 }

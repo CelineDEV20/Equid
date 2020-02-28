@@ -4,7 +4,7 @@
     <nav class="navbar  barre_nav" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="">
-                <img src="/public/assets/img/logo.jpg" alt="logo">
+                <img class="logo" src="{{ url_images }}logo.jpg" alt="logo">
             </a>
 
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -23,6 +23,13 @@
             <div class="navbar-item has-dropdown is-hoverable hover_nav">
                 <a class="navbar-item script_nav" href="{{ path("profil") }}">
                     Vos Equid'Annonces
+                </a>
+
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable hover_nav">
+                <a class="navbar-item script_nav"  href="{{ path('nouvelle_annonce') }}">
+                    <i class="fas fa-plus-circle"></i>
+                    &nbsp&nbsp Déposez une nouvelle Annonce
                 </a>
 
             </div>
